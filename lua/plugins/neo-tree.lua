@@ -30,10 +30,8 @@ return {
     -- Navigation and File Operations
     vim.api.nvim_set_keymap('n', '<leader>n', ':Neotree reveal<CR>', { noremap = true, silent = true })
     vim.api.nvim_set_keymap('n', '<CR>', ':Neotree open<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', 'o', ':Neotree open<CR>', { noremap = true, silent = true })
     vim.api.nvim_set_keymap('n', 's', ':Neotree split<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', 'v', ':Neotree vsplit<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', 't', ':Neotree tabnew<CR>', { noremap = true, silent = true })
+    -- vim.api.nvim_set_keymap('n', 'v', ':Neotree vsplit<CR>', { noremap = true, silent = true })
     vim.api.nvim_set_keymap('n', 'q', ':Neotree close<CR>', { noremap = true, silent = true })
   end,
 }
