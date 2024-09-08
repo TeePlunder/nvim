@@ -32,5 +32,3 @@ vim.opt.colorcolumn = "120"
 -- aka. yank, delete, edit and paste are always from the system clipboard not the * registry
 -- read more with :help unnamedplus
 vim.opt.clipboard = "unnamedplus"
-
-vim.g.mapleader = " "
