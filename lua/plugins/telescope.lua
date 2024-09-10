@@ -9,13 +9,12 @@ return {
     },
     config = function()
       require("telescope").setup({})
+      local builtin = require('telescope.builtin')
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find Files" })
+      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Live Grep" })
+      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Buffers" })
+      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Help Tags" })
     end,
-    keys = {
-      { "n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", { desc = "Find Files" } },
-      { "n", "<leader>sg", "<cmd>lua require('telescope.builtin').live_grep()<cr>",  { desc = "Live Grep" } },
-      { "n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>",    { desc = "Buffers" } },
-      { "n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>",  { desc = "Help Tags" } },
-    },
   },
   {
     "nvim-telescope/telescope-ui-select.nvim",
