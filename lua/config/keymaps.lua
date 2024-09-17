@@ -17,4 +17,6 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>svc", "<cmd>source ~/.config/nvim/init.lua<CR>")
 
-vim.keymap.set("n", "<leader>bb", "<cmd>b#<CR>", {desc = "To last Buffer"})
+-- Buffers
+vim.keymap.set("n", "<leader>bb", "<cmd>b#<CR>", { desc = "To last Buffer" })
+vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>", { desc = "Delete current Buffer" })
