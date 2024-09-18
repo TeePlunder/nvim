@@ -42,9 +42,6 @@ return {
       keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
       keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
         { desc = "Live Grep" })
-      keymap.set("n", "<leader>fc",
-        '<cmd>lua require("telescope.builtin").live_grep({ glob_pattern = "!{spec,test}"})<CR>',
-        { desc = "Live Grep Code" })
       keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
       keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help Tags" })
       keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
