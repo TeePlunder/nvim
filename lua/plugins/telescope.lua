@@ -33,6 +33,11 @@ return {
               ["<C-s>"] = actions.cycle_previewers_next,
               ["<C-a>"] = actions.cycle_previewers_prev,
             },
+          },
+        },
+        pickers = {
+          find_files = {
+            hidden = true
           }
         }
       })
