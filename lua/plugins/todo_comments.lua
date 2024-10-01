@@ -12,4 +12,21 @@ return {
       require("todo-comments").jump_prev()
     end, { desc = "Previous todo comment" })
   end,
+  keys = {
+    {
+      "<leader>ft",
+      "<CMD>TodoTelescope<CR>",
+      desc = "Find Todo",
+    },
+    {
+      "<leader>xt",
+      "<CMD>TodoTrouble<CR>",
+      desc = "Todo (Troube)",
+    },
+    {
+      "<leader>xt",
+      "<CMD>TodoTrouble<CR>",
+      desc = "Todo (Troube)",
+    },
+  },
 }
