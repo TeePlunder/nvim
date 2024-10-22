@@ -11,7 +11,7 @@ return {
     lazy = false,
     opts = {
       automatic_installation = true,
-      ensure_installed       = { "lua_ls", "ts_ls", "gopls" }
+      ensure_installed = { "lua_ls", "ts_ls", "gopls" },
     },
   },
   {
@@ -29,6 +29,10 @@ return {
         capabilities = capabilities,
       })
       lspconfig.html.setup({
+        capabilities = capabilities,
+      })
+
+      lspconfig.gopls.setup({
         capabilities = capabilities,
       })
 
