@@ -20,3 +20,11 @@ vim.keymap.set("n", "<leader>svc", "<cmd>source ~/.config/nvim/init.lua<CR>")
 -- Buffers
 vim.keymap.set("n", "<leader>bb", "<cmd>b#<CR>", { desc = "To last Buffer" })
 vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>", { desc = "Delete current Buffer" })
+
+-- Terminal
+vim.keymap.set(
+	"n",
+	"<leader>t",
+	"<cmd>belowright split | term<CR>",
+	{ noremap = true, silent = true, desc = "Open a Terminal" }
+)
