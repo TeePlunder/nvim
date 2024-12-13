@@ -1,7 +1,3 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -32,4 +28,7 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "120"
 
-vim.g.mapleader = " "
+-- Set clipboard to unnamedplus
+-- aka. yank, delete, edit and paste are always from the system clipboard not the * registry
+-- read more with :help unnamedplus
+vim.opt.clipboard = "unnamedplus"
