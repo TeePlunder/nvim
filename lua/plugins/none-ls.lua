@@ -16,7 +16,9 @@ return {
         null_ls.builtins.formatting.prettier.with({
           extra_args = { "--config-precedence", "prefer-file" },
         }),
-        -- null_ls.builtins.formatting.prettierd,
+        -- null_ls.builtins.formatting.prettierd.with({
+        --   extra_args = { "--config-precedence", "prefer-file" },
+        -- }),
       },
     })
 
