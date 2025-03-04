@@ -12,6 +12,7 @@ return {
       require("todo-comments").jump_prev()
     end, { desc = "Previous todo comment" })
   end,
+  event = "BufRead",
   keys = {
     {
       "<leader>ft",
