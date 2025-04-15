@@ -39,6 +39,9 @@ return {
       local ui = require "dapui"
 
       require("dapui").setup()
+      require("mason-nvim-dap").setup({
+        automatic_installation = true
+      })
 
       dap.listeners.before.attach.dapui_config = function()
         ui.open()
@@ -107,7 +110,10 @@ return {
         }
       end
     end,
-    dependencies = { "rcarriga/nvim-dap-ui", "nvim-neotest/nvim-nio",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-neotest/nvim-nio",
+      "jay-babu/mason-nvim-dap.nvim",
       -- Install the vscode-js-debug adapter
       {
         "microsoft/vscode-js-debug",
