@@ -23,8 +23,8 @@ vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>", { desc = "Delete current Buffer"
 
 -- Terminal
 vim.keymap.set(
-	"n",
-	"<leader>t",
-	"<cmd>belowright split | term<CR>",
-	{ noremap = true, silent = true, desc = "Open a Terminal" }
+  "n",
+  "<leader>t",
+  "<cmd>belowright split | terminal fish<CR>",
+  { noremap = true, silent = true, desc = "Open a Terminal" }
 )
