@@ -17,12 +17,14 @@ return {
     "mfussenegger/nvim-dap",
     -- lazy = true,
     keys = {
-      { "<Leader>dc", function() require("dap").continue() end,          desc = "Continue" },
-      { '<Leader>do', function() require('dap').step_over() end,         desc = "Step Over" },
-      { '<Leader>di', function() require('dap').step_into() end,         desc = "Step Into" },
-      { "<Leader>dO", function() require("dap").step_out() end,          desc = "Step Out" },
-      { "<Leader>du", function() require("dapui").toggle() end,          desc = "Dap UI Toggle" },
-      { "<Leader>dt", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+      { "<Leader>dc", function() require("dap").continue() end,                                       desc = "Continue" },
+      { '<Leader>do', function() require('dap').step_over() end,                                      desc = "Step Over" },
+      { '<Leader>di', function() require('dap').step_into() end,                                      desc = "Step Into" },
+      { "<Leader>dO", function() require("dap").step_out() end,                                       desc = "Step Out" },
+      { "<Leader>du", function() require("dapui").toggle() end,                                       desc = "Dap UI Toggle" },
+      { "<Leader>dt", function() require("dap").toggle_breakpoint() end,                              desc = "Toggle Breakpoint" },
+      { "<leader>de", function() require("dapui").eval() end,                                         desc = "DAP-UI: Evaluate Expression" },
+      { "<leader>dw", function() require('dapui').elements.watches.add(vim.fn.expand('<cword>')) end, desc = "DAP-UI: Add Watch" },
       {
         "<leader>da",
         function()
