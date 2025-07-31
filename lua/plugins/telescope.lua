@@ -32,6 +32,8 @@ return {
               ["<C-S-d>"] = actions.delete_buffer,
               ["<C-s>"] = actions.cycle_previewers_next,
               ["<C-a>"] = actions.cycle_previewers_prev,
+              ['<C-u>'] = actions.cycle_history_prev,
+              ['<C-d>'] = actions.cycle_history_next,
             },
           },
         },
@@ -39,7 +41,11 @@ return {
           find_files = {
             hidden = true
           }
-        }
+        },
+        history = {
+          path = vim.fn.stdpath('data') .. '/telescope_history.sqlite3',
+          limit = 200, -- max entries to keep
+        },
       })
 
       telescope.load_extension("live_grep_args")
