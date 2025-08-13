@@ -28,3 +28,6 @@ vim.keymap.set(
   "<cmd>belowright split | terminal fish<CR>",
   { noremap = true, silent = true, desc = "Open a Terminal" }
 )
+
+-- greatest remap ever
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste over selection without yanking" })
