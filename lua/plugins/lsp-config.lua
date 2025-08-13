@@ -42,11 +42,19 @@ return {
       })
 
       -- Add border to hover
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-        vim.lsp.handlers.hover, {
-          border = "rounded" -- You can use "single", "double", "rounded", etc.
-        }
-      )
+      -- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+      --   vim.lsp.handlers.hover, {
+      --     border = "rounded" -- You can use "single", "double", "rounded", etc.
+      --   }
+      --
+      -- )
+
+      local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+      function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+        opts = opts or {}
+        opts.border = opts.border or "rounded"
+        return orig_util_open_floating_preview(contents, syntax, opts, ...)
+      end
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
