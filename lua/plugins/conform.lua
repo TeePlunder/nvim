@@ -8,8 +8,13 @@ return {
         quiet = false,
       },
       formatters_by_ft = {
-        ["javascript"] = { { "prettierd", "prettier" } },
-        ["typescript"] = { { "prettierd", "prettier" } },
+        ["javascript"] = { "prettierd", "prettier" },
+        ["javascriptreact"] = { "prettierd", "prettier" },
+        ["typescript"] = { "prettierd", "prettier" },
+        ["typescriptreact"] = { "prettierd", "prettier" },
+      },
+      default_format_opts = {
+        stop_after_first = true,
       },
     },
   },
