@@ -35,10 +35,9 @@ return {
 
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
-        -- you can disable tsserver formatting if you prefer to use prettier, etc:
-        -- on_attach = function(client, bufnr)
-        --   client.server_capabilities.documentFormattingProvider = false
-        -- end,
+        on_attach = function(client)
+          client.server_capabilities.documentFormattingProvider = false
+        end,
       })
 
       -- Add border to hover
