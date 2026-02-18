@@ -26,7 +26,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "140"
 
 -- Set clipboard to unnamedplus
 -- aka. yank, delete, edit and paste are always from the system clipboard not the * registry
