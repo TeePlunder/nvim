@@ -47,10 +47,15 @@ return {
         }
       )
 
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
-      vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to References" })
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+      vim.api.nvim_create_autocmd("LspAttach", {
+        callback = function(ev)
+          local opts = { buffer = ev.buf }
+          vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("force", opts, { desc = "Hover Documentation" }))
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Go to Definition" }))
+          vim.keymap.set("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "Go to References" }))
+          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
+        end,
+      })
     end,
   },
 }
