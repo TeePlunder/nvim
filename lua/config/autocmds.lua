@@ -36,3 +36,16 @@ vim.api.nvim_create_autocmd("FocusGained", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold" }, {
+  callback = function()
+    if lsp_stopped then
+      if lsp_idle_timer then
+        lsp_idle_timer:stop()
+        lsp_idle_timer = nil
+      end
+      vim.cmd("LspStart")
+      lsp_stopped = false
+    end
+  end,
+})
