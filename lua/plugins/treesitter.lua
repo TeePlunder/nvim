@@ -3,7 +3,12 @@ return {
   build = ":TSUpdate",
   config = function()
     require("nvim-treesitter.configs").setup({
-      autoinstall = true,
+      ensure_installed = {
+        "lua", "go", "typescript", "javascript", "tsx",
+        "html", "css", "json", "yaml", "markdown",
+        "bash", "nix", "vim", "vimdoc",
+      },
+      autoinstall = false,
       highlight = {
         enable = true, -- false will disable the whole extension
         additional_vim_regex_highlighting = false,
