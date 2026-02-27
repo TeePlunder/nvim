@@ -4,17 +4,16 @@ return {
     keys = {
       { "<leader>fc", function() require("conform").format() end, desc = "Format Code" },
     },
+    event = "BufWritePre",
     opts = {
-      format = {
+      format_on_save = {
         timeout_ms = 3000,
-        async = false,
-        quiet = false,
       },
       formatters_by_ft = {
-        ["javascript"] = { "prettierd", "prettier" },
-        ["javascriptreact"] = { "prettierd", "prettier" },
-        ["typescript"] = { "prettierd", "prettier" },
-        ["typescriptreact"] = { "prettierd", "prettier" },
+        ["javascript"] = { "prettier" },
+        ["javascriptreact"] = { "prettier" },
+        ["typescript"] = { "prettier" },
+        ["typescriptreact"] = { "prettier" },
         ["lua"] = { "stylua" },
       },
       default_format_opts = {
