@@ -22,12 +22,7 @@ return {
     {
       "<leader>xt",
       "<CMD>TodoTrouble<CR>",
-      desc = "Todo (Troube)",
-    },
-    {
-      "<leader>xt",
-      "<CMD>TodoTrouble<CR>",
-      desc = "Todo (Troube)",
+      desc = "Todo (Trouble)",
     },
   },
 }
