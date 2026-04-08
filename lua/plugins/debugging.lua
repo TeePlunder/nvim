@@ -77,11 +77,11 @@ return {
       }
 
       local function list_subdirs(path)
-        local scan = vim.loop.fs_scandir(path)
+        local scan = vim.uv.fs_scandir(path)
         if not scan then return {} end
         local names = {}
         while true do
-          local name, t = vim.loop.fs_scandir_next(scan)
+          local name, t = vim.uv.fs_scandir_next(scan)
           if not name then break end
           if t == "directory" then
             table.insert(names, name)
