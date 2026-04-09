@@ -1,14 +1,13 @@
 return {
   {
     "williamboman/mason.nvim",
-    lazy = false,
+    cmd = "Mason",
     config = function()
       require("mason").setup()
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    lazy = false,
     opts = {
       automatic_installation = true,
       ensure_installed = { "lua_ls", "gopls", "ts_ls" },
@@ -17,6 +16,10 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+    },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -47,6 +50,7 @@ return {
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("force", opts, { desc = "Go to Definition" }))
           vim.keymap.set("n", "gr", vim.lsp.buf.references, vim.tbl_extend("force", opts, { desc = "Go to References" }))
           vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("force", opts, { desc = "Code Action" }))
+          vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, vim.tbl_extend("force", opts, { desc = "Rename" }))
         end,
       })
     end,

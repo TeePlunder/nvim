@@ -10,6 +10,7 @@ return {
 			typescriptreact = { "eslint_d" },
 		}
 		vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
+			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
 			callback = function()
 				lint.try_lint()
 			end,
