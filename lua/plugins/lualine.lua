@@ -1,10 +1,10 @@
 return {
-  'nvim-lualine/lualine.nvim',
-  event = "VeryLazy",
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
-  config = function()
-    require('lualine').setup({
-      options = { theme = 'catppuccin' }
-    })
-  end
+	"nvim-lualine/lualine.nvim",
+	event = "VeryLazy",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	config = function()
+		require("lualine").setup({
+			options = { theme = "auto" },
+		})
+	end,
 }
