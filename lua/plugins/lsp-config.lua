@@ -23,25 +23,17 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local lspconfig = require("lspconfig")
-
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities,
-      })
-
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-      })
-
-      lspconfig.ts_ls.setup({
+      vim.lsp.config("lua_ls", { capabilities = capabilities })
+      vim.lsp.config("html", { capabilities = capabilities })
+      vim.lsp.config("gopls", { capabilities = capabilities })
+      vim.lsp.config("ts_ls", {
         capabilities = capabilities,
         on_attach = function(client)
           client.server_capabilities.documentFormattingProvider = false
         end,
       })
+
+      vim.lsp.enable({ "lua_ls", "html", "gopls", "ts_ls" })
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
