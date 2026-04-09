@@ -23,4 +23,5 @@ These four systems are intentionally separated:
 
 - **Theme:** catppuccin-macchiato, dark background
 - **Indentation:** 2 spaces, no tabs
+- **Keymaps:** every `vim.keymap.set` and `map()` call must include a `desc` field
 - **Debugging** (`debugging.lua`): monorepo-aware — dynamically scans `apps/`/`libs/` dirs to create per-app DAP configs with Node.js js-debug adapter
