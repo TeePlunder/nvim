@@ -3,21 +3,26 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
+    cmd = "Telescope",
+    keys = {
+      { "<leader>ff", function() require("telescope.builtin").find_files() end, desc = "Find Files" },
+      { "<leader>fg", function() require("telescope").extensions.live_grep_args.live_grep_args() end, desc = "Live Grep" },
+      { "<leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
+      { "<leader>fh", function() require("telescope.builtin").help_tags() end, desc = "Help Tags" },
+      { "<leader>fk", function() require("telescope.builtin").keymaps() end, desc = "Find Keymaps" },
+    },
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       {
         "nvim-telescope/telescope-live-grep-args.nvim",
-        -- This will not install any breaking changes.
-        -- For major updates, this must be adjusted manually.
         version = "^1.0.0",
       },
+      "nvim-telescope/telescope-ui-select.nvim",
     },
     config = function()
       local telescope = require("telescope")
       local actions = require("telescope.actions")
-      local builtin = require("telescope.builtin")
-      local keymap = vim.keymap
 
       telescope.setup({
         defaults = {
@@ -42,35 +47,19 @@ return {
             hidden = true
           }
         },
-        history = {
-          path = vim.fn.stdpath('data') .. '/telescope_history.sqlite3',
-          limit = 200, -- max entries to keep
-        },
-      })
-
-      telescope.load_extension("live_grep_args")
-
-      keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
-      keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-        { desc = "Live Grep" })
-      keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
-      keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help Tags" })
-      keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find Keymaps" })
-    end,
-  },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    config = function()
-      require("telescope").setup({
         extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({}),
           },
         },
+        history = {
+          path = vim.fn.stdpath('data') .. '/telescope_history.sqlite3',
+          limit = 200,
+        },
       })
-      -- To get ui-select loaded and working with telescope, you need to call
-      -- load_extension, somewhere after setup function:
-      require("telescope").load_extension("ui-select")
+
+      telescope.load_extension("live_grep_args")
+      telescope.load_extension("ui-select")
     end,
   },
 }
