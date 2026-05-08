@@ -14,6 +14,7 @@ return {
         ["javascriptreact"] = { "prettier" },
         ["typescript"] = { "prettier" },
         ["typescriptreact"] = { "prettier" },
+        ["json"] = { "prettier", "jq" },
         ["lua"] = { "stylua" },
       },
       default_format_opts = {
