@@ -19,6 +19,9 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
+vim.opt.winborder = "rounded"
+vim.opt.pummaxwidth = 80
+vim.opt.completeopt:append("nearest")
 
 vim.opt.scrolloff = 999
 vim.opt.signcolumn = "yes"

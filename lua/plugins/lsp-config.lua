@@ -9,8 +9,8 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
-      automatic_installation = true,
-      ensure_installed = { "lua_ls", "gopls", "ts_ls" },
+      automatic_enable = false,
+      ensure_installed = { "lua_ls", "gopls", "ts_ls", "html" },
     },
   },
   {
