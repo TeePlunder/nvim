@@ -8,9 +8,10 @@ return {
 			javascriptreact = { "eslint_d" },
 			typescript = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
+			go = { "golangcilint" },
 		}
 		vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
-			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+			pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.go" },
 			callback = function()
 				lint.try_lint()
 			end,
