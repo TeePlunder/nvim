@@ -23,14 +23,6 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      vim.diagnostic.config({
-        virtual_text = true,
-        signs = true,
-        underline = true,
-        update_in_insert = false,
-        severity_sort = true,
-      })
-
       vim.lsp.config("lua_ls", { capabilities = capabilities })
       vim.lsp.config("html", { capabilities = capabilities })
       vim.lsp.config("gopls", { capabilities = capabilities })
