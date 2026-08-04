@@ -2,7 +2,7 @@ return {
   -- Telescope and its dependencies
   {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    branch = "master",
     cmd = "Telescope",
     keys = {
       { "<leader>ff", function() require("telescope.builtin").find_files() end, desc = "Find Files" },
