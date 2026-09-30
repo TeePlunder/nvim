@@ -32,8 +32,12 @@ return {
           client.server_capabilities.documentFormattingProvider = false
         end,
       })
+      vim.lsp.config("jdtls", {
+        capabilities = capabilities,
+        cmd_env = { JAVA_HOME = vim.trim(vim.system({ "mise", "where", "java@21" }):wait().stdout or "") },
+      })
 
-      vim.lsp.enable({ "lua_ls", "html", "gopls", "ts_ls" })
+      vim.lsp.enable({ "lua_ls", "html", "gopls", "ts_ls", "jdtls" })
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
