@@ -38,91 +38,63 @@ return {
 			},
 		},
 
-		-- See Pulls Configuration below.
 		pulls = {
 			---@type AtlasBitbucketPullsConfig
 			bitbucket = {
 				---@type AtlasBitbucketViewConfig[]
 				views = {
 					{
+						name = "Repo",
+						key = "1",
+						layout = "compact",
+						current_repo = true,
+					},
+					{
 						name = "Me",
 						key = "M",
-						layout = "compact", -- "compact", "grouped", or "plain"
+						layout = "grouped",
 						-- https://developer.atlassian.com/cloud/bitbucket/rest/#filter-and-sort-api-objects
-						search = 'repo:your-workspace/standalone-repo project:your-workspace/CORE author.nickname = "your-name"',
+						search = 'repo:sweetconnect/sc-platform repo:sweetconnect/sweetconnect-api repo:sweetconnect/sc-ai author.nickname = "Leon Bergmann"',
 					},
 					{
 						name = "Team",
-						key = "1",
+						key = "T",
 						layout = "grouped",
-						search = 'project:your-workspace/TEAM destination.branch.name = "main"',
-					},
-				},
-
-				bookmarks = {
-					key = "S", -- default
-					label = "Search", -- default
-					items = {
-						["Atlas"] = {
-							layout = "grouped",
-							search = 'repo:your-workspace/atlas project:your-workspace/ATLAS title ~ "atlas"',
-						},
+						search = "repo:sweetconnect/sc-platform repo:sweetconnect/sweetconnect-api repo:sweetconnect/sc-ai",
 					},
 				},
 			},
 		},
 
-		-- See Issue Configuration below.
 		issues = {
 			---@type AtlasJiraIssuesConfig
 			jira = {
 				---@type AtlasJiraViewConfig[]
 				views = {
 					{
-						name = "My Board",
+						name = "Mine",
 						key = "M",
 						layout = "plain",
-						jql = "project = KAN AND assignee = currentUser() ORDER BY updated DESC",
+						jql = "project = SC AND assignee = currentUser() AND statusCategory != Done ORDER BY updated DESC",
 					},
 					{
-						name = "Team Board",
+						name = "In Progress",
 						key = "T",
 						layout = "compact",
-						jql = "project = KAN ORDER BY updated DESC",
+						jql = "project = SC AND statusCategory = \"In Progress\" ORDER BY updated DESC",
 					},
 				},
 
 				bookmarks = {
-					key = "J", -- default
-					label = "JQL", -- default
 					items = {
-						["Backlog"] = "project = KAN AND statusCategory != Done AND (sprint IS EMPTY OR sprint NOT IN openSprints()) ORDER BY Rank ASC",
-						["Next sprint"] = "project = KAN AND sprint in futureSprints() ORDER BY Rank ASC",
-						["My open"] = "assignee = currentUser() AND statusCategory != Done ORDER BY updated DESC",
+						["Backlog"] = "project = SC AND statusCategory = \"To Do\" ORDER BY Rank ASC",
+						["My open (all projects)"] = "assignee = currentUser() AND statusCategory != Done ORDER BY updated DESC",
+						["My bugs"] = "project = SC AND type = Bug AND assignee = currentUser() AND statusCategory != Done ORDER BY priority DESC",
 					},
 				},
 
 				project_config = {
-					-- The Jira custom field ID used for story points. Defaults to "customfield_10016".
-					story_points_field = "customfield_10016",
-					issue_types = {
-						["Maintenance"] = { icon = "", hl_group = "AtlasTextWarning" },
-						["Infrastructure"] = { icon = "󰒋", hl_group = "AtlasLogInfo" },
-					},
-
-					KAN = {
-						customfield_10003 = {
-							name = "Approvers",
-							format = function(value)
-								if type(value) ~= "table" or #value == 0 then
-									return nil -- nil hides the field
-								end
-								return table.concat(value, ", ")
-							end,
-							hl_group = "AtlasChipActive",
-							display = "chip", -- "chip" or "table"
-						},
-					},
+					story_points_field = "customfield_10028",
 				},
 			},
 		},
