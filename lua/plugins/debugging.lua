@@ -25,25 +25,17 @@ return {
       { "<Leader>dt", function() require("dap").toggle_breakpoint() end,                              desc = "Toggle Breakpoint" },
       { "<leader>de", function() require("dapui").eval() end,                                         desc = "DAP-UI: Evaluate Expression" },
       { "<leader>dw", function() require('dapui').elements.watches.add(vim.fn.expand('<cword>')) end, desc = "DAP-UI: Add Watch" },
-      {
-        "<leader>da",
-        function()
-          if vim.fn.filereadable(".vscode/launch.json") then
-            local dap_vscode = require("dap.ext.vscode")
-            dap_vscode.load_launchjs(nil, {
-              ["pwa-node"] = js_based_languages,
-              ["chrome"] = js_based_languages,
-              ["pwa-chrome"] = js_based_languages,
-            })
-          end
-          require("dap").continue()
-        end,
-        desc = "Run with Args",
-      },
     },
     config = function()
       local dap = require "dap"
       local ui = require "dapui"
+
+      -- launch.json is read automatically on continue(); map its adapter types to filetypes
+      require("dap.ext.vscode").type_to_filetypes = {
+        ["pwa-node"] = js_based_languages,
+        ["chrome"] = js_based_languages,
+        ["pwa-chrome"] = js_based_languages,
+      }
 
       require("dapui").setup()
       require("mason-nvim-dap").setup({
