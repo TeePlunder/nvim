@@ -51,6 +51,12 @@ return {
 				---@type AtlasBitbucketViewConfig[]
 				views = {
 					{
+						name = "Review",
+						key = "V",
+						layout = "grouped",
+						search = 'repo:sweetconnect/sc-platform repo:sweetconnect/sweetconnect-api repo:sweetconnect/sc-ai reviewers.nickname = "Leon Bergmann"',
+					},
+					{
 						name = "Me",
 						key = "M",
 						layout = "grouped",
