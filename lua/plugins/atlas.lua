@@ -11,7 +11,7 @@ return {
 	opts = {
 		ui = {
 			-- Global statusline for Atlas. See the Statusline section below.
-			statusline = true,
+			statusline = { atlas = true, diff = true },
 			-- "auto", "default", "snacks", or "fzf-lua".
 			picker = "auto",
 			-- Make the main Atlas dashboard a listed buffer.
