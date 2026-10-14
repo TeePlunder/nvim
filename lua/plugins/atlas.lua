@@ -44,12 +44,6 @@ return {
 				---@type AtlasBitbucketViewConfig[]
 				views = {
 					{
-						name = "Repo",
-						key = "1",
-						layout = "compact",
-						current_repo = true,
-					},
-					{
 						name = "Me",
 						key = "M",
 						layout = "grouped",
@@ -61,6 +55,13 @@ return {
 						key = "T",
 						layout = "grouped",
 						search = "repo:sweetconnect/sc-platform repo:sweetconnect/sweetconnect-api repo:sweetconnect/sc-ai",
+					},
+					-- needs bitbucket origin in cwd; kept last so default view works anywhere
+					{
+						name = "Repo",
+						key = "1",
+						layout = "compact",
+						current_repo = true,
 					},
 				},
 			},
