@@ -39,6 +39,13 @@ return {
 		},
 
 		pulls = {
+			repo_config = {
+				-- maps workspace/repo to local clones for checkout and diffs
+				paths = {
+					["sweetconnect/*"] = "~/development/*",
+				},
+			},
+
 			---@type AtlasBitbucketPullsConfig
 			bitbucket = {
 				---@type AtlasBitbucketViewConfig[]
