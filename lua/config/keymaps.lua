@@ -18,6 +18,7 @@ vim.keymap.set("n", "<leader>svc", "<cmd>source ~/.config/nvim/init.lua<CR>", { 
 -- Buffers
 vim.keymap.set("n", "<leader>bb", "<cmd>b#<CR>", { desc = "To last Buffer" })
 vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>", { desc = "Delete current Buffer" })
+vim.keymap.set("n", "<leader>bc", "<cmd>%bd|e#|bd#<CR>", { desc = "Clear other Buffers" })
 
 -- Terminal
 vim.keymap.set(
