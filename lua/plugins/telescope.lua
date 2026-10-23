@@ -19,6 +19,10 @@ return {
         version = "^1.0.0",
       },
       "nvim-telescope/telescope-ui-select.nvim",
+      {
+        "nvim-telescope/telescope-smart-history.nvim",
+        dependencies = { "kkharji/sqlite.lua" },
+      },
     },
     config = function()
       local telescope = require("telescope")
@@ -28,6 +32,10 @@ return {
       telescope.setup({
         defaults = {
           file_ignore_patterns = { "node_modules" },
+          history = {
+            path = vim.fn.stdpath("data") .. "/telescope_history.sqlite3",
+            limit = 200,
+          },
           mappings = {
             n = {
               ["<C-w>"] = actions.send_selected_to_qflist + actions.open_qflist,
@@ -62,14 +70,11 @@ return {
             },
           },
         },
-        history = {
-          path = vim.fn.stdpath('data') .. '/telescope_history.sqlite3',
-          limit = 200,
-        },
       })
 
       telescope.load_extension("live_grep_args")
       telescope.load_extension("ui-select")
+      telescope.load_extension("smart_history")
     end,
   },
 }
